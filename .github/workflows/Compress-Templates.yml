@@ -21,14 +21,14 @@ jobs:
     steps:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it=
-      - name: Checkout.
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       # Install and Build
       - name: List files
         run: |
           cd ./templates
           ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
+          ls
 #
 #      - name: Deploy 🚀
 #        uses: peaceiris/actions-gh-pages@v3
