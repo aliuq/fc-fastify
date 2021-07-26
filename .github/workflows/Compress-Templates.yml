@@ -29,12 +29,8 @@ jobs:
           cd ./templates
           ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
           ls
-#
-#      - name: Deploy 🚀
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          personal_token: ${{ secrets.TOKEN }}
-#          external_repository: liuqian1996/liuqian1996.github.io
-#          publish_branch: master
-#          publish_dir: ./vuepress-upup/blogs/.vuepress/dist
-#          full_commit_message: deploy by github actions.
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: templates
+          path: ./*.tar.gz
