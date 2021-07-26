@@ -49,8 +49,7 @@ jobs:
             templates/custom-fastify-ts/
 
       - uses: actions/download-artifact@v2
-        with:
-          name: custom-fastify
+        id: download
 
-      - name: Display structure of downloaded files
-        run: ls -R
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
