@@ -27,7 +27,8 @@ jobs:
       # Install and Build
       - name: List files
         run: |
-          ls
+          cd ./templates
+          ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
 #
 #      - name: Deploy 🚀
 #        uses: peaceiris/actions-gh-pages@v3
