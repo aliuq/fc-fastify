@@ -33,4 +33,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: templates
-          path: ./*.tar.gz
+          path: templates/*.tar.gz
