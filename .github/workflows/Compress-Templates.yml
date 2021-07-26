@@ -35,14 +35,6 @@ jobs:
 #          name: templates
 #          path: |
 #            templates/*.tar.gz
-      - uses: actions/download-artifact@v2
-        with:
-          name: custom-fastify
-          path: |
-            templates/custom-fastify/
-
-      - name: Display structure of downloaded files
-        run: ls -R
 
       - uses: actions/upload-artifact@v2
         with:
@@ -55,3 +47,10 @@ jobs:
           name: custom-fastify-ts
           path: |
             templates/custom-fastify-ts/
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: custom-fastify
+
+      - name: Display structure of downloaded files
+        run: ls -R
