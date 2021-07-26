@@ -37,6 +37,7 @@ jobs:
 #            templates/*.tar.gz
 
       - uses: actions/upload-artifact@v2
+        id: custom-fastify
         with:
           name: custom-fastify
           path: |
@@ -47,3 +48,6 @@ jobs:
           name: custom-fastify-ts
           path: |
             templates/custom-fastify-ts/
+
+      - name: 'Echo custom-fastify'
+        run: echo ${{steps.custom-fastify.outputs}}
