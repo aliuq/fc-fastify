@@ -23,15 +23,27 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it=
       - uses: actions/checkout@v2
 
-      # Install and Build
-      - name: List files
-        run: |
-          cd ./templates
-          ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
-          ls
+#      # Install and Build
+#      - name: List files
+#        run: |
+#          cd ./templates
+#          ls -F | grep '/$' | awk -F '/'  '{print $1".tar.gz"}''{print $1"/"}' | xargs -n2 tar czvf
+#          ls
+#
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: templates
+#          path: |
+#            templates/*.tar.gz
 
       - uses: actions/upload-artifact@v2
         with:
-          name: templates
+          name: custom-fastify
           path: |
-            templates/*.tar.gz
+            templates/custom-fastify/
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: custom-fastify-ts
+          path: |
+            templates/custom-fastify-ts/
