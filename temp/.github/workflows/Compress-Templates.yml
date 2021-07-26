@@ -34,7 +34,6 @@ jobs:
 #        with:
 #          name: templates
 #          path: |
-#            templates/*.tar.gz
 
       - uses: actions/upload-artifact@v2
         id: custom-fastify
