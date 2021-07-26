@@ -38,6 +38,12 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: templates
+          name: custom-fastify
           path: |
-            templates/*
+            templates/custom-fastify/
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: custom-fastify-ts
+          path: |
+            templates/custom-fastify-ts/
