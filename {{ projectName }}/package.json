@@ -1,0 +1,42 @@
+<%
+  const language = typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript') ? 'ts' : 'js'
+  return removeLines(`
+{
+  "name": "${projectName}",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node ./bin/www",
+${ language === 'ts' ? `
+    "dev": "tsc && concurrently -k -p \\\"[{name}]\\\" -n \\\"TypeScript,App\\\" -c \\\"yellow.bold,cyan.bold\\\" \\\"tsc -w\\\" \\\"fastify start --ignore-watch=.ts$ -w -l info -P -p 9000 dist/app.js\\\"",
+    "build": "tsc",
+    "test": "tsc && tsc -p test/tsconfig.test.json && cross-env TS_NODE_FILES=true tap --ts \\\"test/**/*.test.ts\\\""
+` : `
+    "dev": "fastify start -w -l info -p 9000 src/app.js",
+    "test": "tap \\\"test/**/*.test.js\\\""
+` }
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "fastify": "^3.0.0",
+    "fastify-plugin": "^3.0.0",
+    "fastify-autoload": "^3.3.1",
+    "fastify-sensible": "^3.1.0",
+    "fastify-cli": "^2.13.0"
+  },
+  "devDependencies": {
+${ language === 'ts' ? `
+    "@types/node": "^16.4.1",
+    "@types/tap": "^15.0.5",
+    "concurrently": "^6.2.0",
+    "cross-env": "^7.0.3",
+    "fastify-tsconfig": "^1.0.1",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+` : '' }
+    "tap": "^15.0.9"
+  }
+}
+`)
+%>

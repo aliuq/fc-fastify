@@ -1,5 +1,5 @@
 module.exports = {
-	"name": "custom-fastify",
+	"name": "custom-fastify{{ typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript') ? '-typescript' : '' }}",
 	"description": "Fastify template for Custom Runtime",
 	"vars": {
 		"service": "{{ projectName }}",
@@ -18,5 +18,9 @@ module.exports = {
 			"message": "Custom domain?",
 			"default": true
 		}
+	],
+	"ignorePaths": [
+		"{{ typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript') ? '' : 'tsconfig*.json' }}",
+		"{{ typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript') ? '*.js' : '*.ts' }}"
 	]
 }

@@ -1,6 +1,8 @@
 # Funcraft
 template.yml
 .env
+.fun
+test
 
 # Logs
 logs
@@ -15,8 +17,10 @@ jspm_packages
 .npm
 
 # webstorm
-../../.idea
+.idea
 
 # vscode
 .vscode
 *code-workspace
+
+.nyc_output

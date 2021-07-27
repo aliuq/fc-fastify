@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
+<% if (typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript')) { %>
+const { default: App } = require('../dist/app')
+<% } else { %>
 const App = require('../src/app')
+<% } %>
 const fastify = require('fastify')({
   logger: true
 })

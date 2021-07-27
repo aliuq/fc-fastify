@@ -1,0 +1,18 @@
+<%
+	const language = typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript') ? 'ts' : 'js'
+	return removeLines(`
+
+RUNTIME custom
+COPY ./package.json .
+RUN npm install
+
+${ language === 'ts' ? `
+
+COPY ./src ./src
+COPY ./tsconfig.json .
+RUN npm run build
+
+` : '' }
+
+`)
+%>

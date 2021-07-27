@@ -1,4 +1,4 @@
-## Fastify Typescript Template for Custom Runtime
+## Fastify {{ typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript') ? "Typescript " : "" }}Template for Custom Runtime
 
 ### Install
 
@@ -11,13 +11,13 @@ $ npm install
 ```bash
 $ npm run dev
 ```
-
+<% if (typeof lang !== 'undefined' && (lang === 'ts' || lang === 'typescript')) { %>
 ### Build
 
 ```bash
 $ npm run build
 ```
-
+<% } %>
 ### Deploy
 
 ```bash
