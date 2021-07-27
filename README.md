@@ -1,4 +1,4 @@
-# fc-templates
+# FC Fastify Template
 
 **如果出现以下错误，undefined, 请不要使用temp文件夹或在.funignore中出现的文件夹名称**
 ```bash
