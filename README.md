@@ -62,7 +62,8 @@ Cannot read property 'stop' of null
 stopping old container successfully
 ```
 
-**如果出现“/usr/bin/env: ‘bash\r’: No such file or directory”**错误
+**如果出现“/usr/bin/env: ‘bash\r’: No such file or directory”错误**
+
 以bootstrap文件为例
 + Windows上解决
   1. 使用git bash打开目标脚本，执行vim bootstrap，Shift + : 呼出输入框
