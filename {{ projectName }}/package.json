@@ -4,20 +4,21 @@
 {
   "name": "${projectName}",
   "version": "1.0.0",
-  "description": "",
+  "description": "${projectName} description",
   "scripts": {
     "start": "node ./bin/www",
 ${ language === 'ts' ? `
-    "dev": "tsc && concurrently -k -p \\\"[{name}]\\\" -n \\\"TypeScript,App\\\" -c \\\"yellow.bold,cyan.bold\\\" \\\"tsc -w\\\" \\\"fastify start --ignore-watch=.ts$ -w -l info -P -p 9000 dist/app.js\\\"",
+    "dev": "tsc && concurrently -k -p \\\"[{name}]\\\" -n \\\"TypeScript,App\\\" -c \\\"yellow.bold,cyan.bold\\\" \\\"tsc -w\\\" \\\"fastify start --ignore-watch=.ts$ -w -l info -P -a 0.0.0.0 -p 9000 dist/app.js\\\"",
     "build": "tsc",
     "test": "tsc && tsc -p test/tsconfig.test.json && cross-env TS_NODE_FILES=true tap --ts \\\"test/**/*.test.ts\\\""
 ` : `
-    "dev": "fastify start -w -l info -p 9000 src/app.js",
+    "dev": "fastify start -w -l info -a 0.0.0.0 -p 9000 src/app.js",
     "test": "tap \\\"test/**/*.test.js\\\""
 ` }
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["fastify", "fc", "template"],
+  "author": "Linka",
+  "license": "MIT",
   "dependencies": {
     "fastify": "^3.0.0",
     "fastify-plugin": "^3.0.0",

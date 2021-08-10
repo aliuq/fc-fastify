@@ -3,6 +3,7 @@ template.yml
 .env
 .fun
 test
+dist
 
 # Logs
 logs

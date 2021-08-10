@@ -3,16 +3,32 @@
 	return removeLines(`
 
 RUNTIME custom
-COPY ./package.json .
-RUN npm install
+
+${ runtime ? `
+ENV NODE_VERSION ${runtime}
+RUN wget -q ${registry.replace(/\{0\}/g, '$NODE_VERSION')} \\
+		&& tar -xf node-v$NODE_VERSION-linux-x64.tar.xz \\
+		&& rm node-v$NODE_VERSION-linux-x64.tar.xz
+
+# Set container node version same as fc, ensure use same runtime to install and build
+ENV NODE_HOME=/code/node-v$NODE_VERSION-linux-x64
+ENV PATH=$NODE_HOME/bin:$PATH
+ENV NODE_PATH=$NODE_HOME/lib/node_modules:$NODE_PATH
+` : '' }
 
 ${ language === 'ts' ? `
 
 COPY ./src ./src
 COPY ./tsconfig.json .
-RUN npm run build
+COPY ./package.json .
+RUN npm install -qs --no-audit --loglevel error && npm run build
 
-` : '' }
+` : `
+
+COPY ./package.json .
+RUN npm install -qs --no-audit --loglevel error
+
+` }
 
 `)
 %>
