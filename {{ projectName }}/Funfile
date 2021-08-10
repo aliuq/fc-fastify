@@ -14,6 +14,9 @@ RUN wget -q ${registry.replace(/\{0\}/g, '$NODE_VERSION')} \\
 ENV NODE_HOME=/code/node-v$NODE_VERSION-linux-x64
 ENV PATH=$NODE_HOME/bin:$PATH
 ENV NODE_PATH=$NODE_HOME/lib/node_modules:$NODE_PATH
+
+RUN ln -sf $NODE_HOME/lib/node_modules/npm/bin/npm-cli.js /usr/bin/npm \\
+		&& ln -sf $NODE_HOME/lib/node_modules/npm/bin/npx-cli.js /usr/bin/npx
 ` : '' }
 
 ${ language === 'ts' ? `
