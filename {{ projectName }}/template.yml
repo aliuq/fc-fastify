@@ -15,7 +15,7 @@ Resources:
         MemorySize: 512
         CodeUri: "./"
         EnvironmentVariables:
-          # Then you can use `process.env.EXAMPLE` everywhere
+          # Then you can use \`process.env.EXAMPLE\` everywhere
           EXAMPLE: 'example environment variables'
           ${runtime ? `
           PATH: /code/node-v${runtime}-linux-x64/bin
