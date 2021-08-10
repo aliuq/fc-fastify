@@ -167,3 +167,9 @@ Error: (HTTP code 409) container stopped/paused - Container 54073aa5b605de11856a
 }
 
 ```
+
+**7. 如果出现`permission denied, mkdir XXX`等权限问题，使用`sudo`权限安装依赖**
+
+```shell
+sudo npm install
+```
