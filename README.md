@@ -47,7 +47,7 @@ fun init gh:liuqian1996/fc-fastify --var <option1>=<value1> --var <option2>=<val
 
 ## 可选项
 
-1. `runtime`：`{string}`，自定义node环境，默认为函数计算容器内自带的环境，可通过命令自定义一个版本
+1. `runtime`：`{string}`，自定义node环境，默认为函数计算容器内自带的环境，可通过命令自定义一个版本。运行成功后，通过`/hello`路由查看node版本信息
 2. `registry`：`{string}`，`runtime`不为空时有效，通过选择`Taobao`（npm.taobao.org）或`official`（nodejs.org）来下载node安装包
 3. `httpTrigger`：`{boolean}`，是否添加默认 http trigger 触发器
 4. `customDomain`：`{boolean}`，是否添加默认 custom domain 自定义域名
